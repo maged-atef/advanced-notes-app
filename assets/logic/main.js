@@ -488,5 +488,8 @@ function show_aside() {
     }else{
          aside_menu.classList.remove('d-none')
         aside_menu.classList.add('d-block')
+        aside_menu.style.width ='60%'
+        aside_menu.style.height= '100vh'
+        
     }
 }
