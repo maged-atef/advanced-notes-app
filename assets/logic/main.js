@@ -482,13 +482,13 @@ function show_aside() {
     const aside_menu = document.getElementById("aside")
     if (aside_menu.classList.contains('d-block')) {
         aside_menu.classList.remove('d-block')
-        aside_menu.style.width ='60%'
+        aside_menu.style.width ='60vw'
         aside_menu.style.height= '100vh'
         aside_menu.classList.add('d-none')
     }else{
          aside_menu.classList.remove('d-none')
         aside_menu.classList.add('d-block')
-        aside_menu.style.width ='60%'
+        aside_menu.style.width ='60vw'
         aside_menu.style.height= '100vh'
         
     }
