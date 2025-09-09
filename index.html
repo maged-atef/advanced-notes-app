@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styling Files  -->
+    <link rel="stylesheet" href="./assets/styling/all.min.css">
+    <link rel="stylesheet" href="./assets/styling/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.bubble.css" /> -->
+   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="./assets/styling/style.css">
+    <title>❤Planny💥</title>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+
+
+    </header>
+
+    <!-- main -->
+    <main>
+        <!-- Top -->
+        <div class="top ">
+
+        </div>
+
+
+        <!-- Custom toolbar -->
+        <div id="custom-toolbar">
+            <button onclick="applyFormat('bold')"><b>B</b></button>
+            <button onclick="applyFormat('italic')"><i>I</i></button>
+            <button onclick="applyFormat('underline')"><u>U</u></button>
+            <button onclick="applyFormat('strike')"><s>S</s></button>
+            <button onclick="applyFormat('header', 1)">H1</button>
+            <button onclick="applyFormat('header', 2)">H2</button>
+            <button onclick="applyFormat('blockquote')">❝</button>
+            <button onclick="applyFormat('code-block')">{ }</button>
+            <button onclick="applyFormat('list', 'ordered')">1.</button>
+            <button onclick="applyFormat('list', 'bullet')">•</button>
+            <button onclick="insertLink()">🔗</button>
+            <button onclick="quill.removeFormat(quill.getSelection())">✖</button>
+        </div>
+        <!-- middle -->
+        <div class="main-section w-100 d-flex justify-content-between ">
+            <!-- left side link -->
+            <aside class=" border  rounded-2 position-relative" id="aside">
+                <div class="open-side" id="side-menu" onclick="toggle_aside()">
+                    <i class="fa-solid fa-dragon"></i>
+                </div>
+                <ul>
+                    <li onclick="create_new()"><i class="fa-solid fa-notes-medical"></i> Create New</li>
+                    <li onclick="show_search_panel()"><i class="fa-solid fa-search"></i> Search</li>
+                    <li onclick=""><i class="fa-solid fa-house"></i> Home</li>
+                </ul>
+                <div class="quick">
+
+                    <p class="title fw-semibold ">quick links</p>
+
+                    <ul>
+                        <ul>
+                            <p><i class="fa-regular fa-note-sticky fw-bold text-info"></i> all notes</p>
+                            <li id="all_notes"></li>
+                        </ul>
+
+                        <li><i class="fa-solid fa-thumbtack fw-semibold text-success"></i><a href=""> pinned</a></li>
+                        <li><i class="fa-solid fa-list-check fa-fade fw-semibold text-danger"></i> <a href="">task</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="all-links">
+                    <p class="title fw-semibold ">Notes</p>
+                    <ul id="side-tools-bar">
+                        <li onclick="load_recent()"><i class="fa-solid fa-note-sticky text-primary"></i> sticky notes
+                        </li>
+                        <li><i class="fa-solid fa-list"></i> <a href="">notes</a></li>
+                        <li><i class="fa-solid fa-star text-warning"></i> <a href="">starred</a></li>
+                        <li><i class="fa-solid fa-share-nodes text-"></i> <a href="">shared with me</a></li>
+                        <li id="archive_main"><i class="fa-solid fa-folder-tree"></i><a href="">archive</a></li>
+                        <li id="notebook-main"><i class="fa-solid fa-book text-primary "></i> notebooks</li>
+                            <ul id="inside_notebook">
+
+                            </ul>
+                        <li><i class="fa-solid fa-tag text-muted"></i> <a href="">labels</a></li>
+                        <li><i class="fa-solid fa-trash-can text-danger"></i> deleted
+                            <ul id="deleted_items">
+
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <!-- custom menu for note book -->
+                <ul id="custom-menu" class="list-unstyled position-absolute bg-white border rounded shadow-sm d-none"
+                    style="min-width:180px; z-index:1000;">
+                    <li class="px-3 py-2 hover-bg" onclick="add_new('maged','notebook')">📓 new notebook</li>
+                    <li class="px-3 py-2 hover-bg" onclick="add_new('maged','label')">🏷 new label</li>
+                    <li class="px-3 py-2 hover-bg" onclick="add_new('maged','note')">📰 new note</li>
+                    <li class="px-3 py-2 hover-bg">📄 Duplicate</li>
+                    <li class="px-3 py-2 hover-bg">🗑️ Delete</li>
+                    <li class="dropdown-divider my-1"></li>
+                    <li class="px-3 py-2 hover-bg text-danger">🚫 Remove</li>
+                </ul>
+<!-- <div class="wrapper" id="custom-menu">
+      <div class="content">
+        <ul class="menu">
+          <li class="item">
+            <i class="uil uil-eye"></i>
+            <span>Preview</span>
+          </li>
+          <li class="item share">
+            <div>
+              <i class="uil uil-share"></i>
+              <span>Share</span>
+            </div>
+            <i class="uil uil-angle-right"></i>
+            <ul class="share-menu">
+              <li class="item">
+                <i class="uil uil-twitter-alt"></i>
+                <span>Twitter</span>
+              </li>
+              <li class="item">
+                <i class="uil uil-instagram"></i>
+                <span>Instagram</span>
+              </li>
+              <li class="item">
+                <i class="uil uil-dribbble"></i>
+                <span>Dribble</span>
+              </li>
+              <li class="item">
+                <i class="uil uil-telegram-alt"></i>
+                <span>Telegram</span>
+              </li>
+            </ul>
+          </li>
+          <li class="item">
+            <i class="uil uil-link-alt"></i>
+            <span>Get Link</span>
+          </li>
+          <li class="item">
+            <i class="uil uil-edit"></i>
+            <span>Rename</span>
+          </li>
+          <li class="item">
+            <i class="uil uil-trash-alt"></i>
+            <span>Delete</span>
+          </li>
+        </ul>
+        <div class="setting">
+          <li class="item">
+            <i class="uil uil-setting"></i>
+            <span>Settings</span>
+          </li>
+        </div>
+      </div>
+    </div> -->
+            </aside>
+
+            <!-- right side content -->
+            <div class="content   rounded-2" id="content">
+
+                <!-- recent file -->
+                <div class="notes " id="go-search">
+                    <h3>Search Databases</h3>
+                    <input type="text" name="" id="search-input" class=" border w-100"
+                        placeholder="Search for anything...">
+                    <p>founded Files</p>
+                    <ul id="recent_opened">
+
+                    </ul>
+
+                </div>
+
+                <!-- edit area -->
+                <div class="create-panel rounded-2">
+                    <!-- tool bar icon -->
+                    <div class="edit-tools rounded-2 " id="right-click-tools">
+                        <ul>
+                            <li><i class="fa-solid fa-home" onclick="show_aside()"></i></li>
+                            <li><i class="fa-solid fa-star text-warning" onclick=""></i> </li>
+                            <li><i class="fa-solid fa-tag text-muted"></i> </li>
+                            <li><i class="fa-solid fa-trash-can text-danger" onclick="del_note()"></i></li>
+                            <li><i class="fa-solid fa-share-nodes text-"></i> </li>
+                            <li><i class="fa-solid fa-folder-tree"></i></li>
+                            <li><i class="fa-solid fa-thumbtack fw-semibold text-success"></i></li>
+                            <li><i class="fa-solid fa-list-check fa-fade fw-semibold text-danger"></i></li>
+                            <li><i class="fa-regular fa-floppy-disk" onclick="save_current_note()"></i></li>
+                            <li><i class="fa-brands fa-soundcloud" onclick="load_saved_note(localStorage.key(0))"></i>
+                            </li>
+
+                        </ul>
+                        <p id="filename"> </p>
+                    </div>
+
+                    <!-- write note area  -->
+                    <div class="write-panel" id="edit-area">
+
+                        <div name="" id="txt-area" class=" " placeholder="write down your thoughts..."></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- logic Files  -->
+    <script src="./assets/logic/all.min.js"></script>
+    <script src="./assets/logic/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script> -->
+
+    <script src="./assets/logic/main.js" defer></script>
+</body>
+
+</html>

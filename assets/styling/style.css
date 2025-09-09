@@ -1,0 +1,339 @@
+/* -----------------------------------------------reset HTML File start */
+*,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* -----------------------------------------------reset HTML File end */
+
+/* -----------------------------------------------Public variables start */
+/* -----------------------------------------------Public variables end */
+
+/* -----------------------------------------------utilites start */
+ul {
+    list-style: none;
+}
+
+li {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: 'amr-b';
+    src: url('../resources/fonts/Amiri-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'amr-r';
+    src: url('../resources/fonts/Amiri-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'car-b';
+    src: url('../resources/fonts/Cairo-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'car-r';
+    src: url('../resources/fonts/Cairo-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'car-sb';
+    src: url('../resources/fonts/Cairo-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'wr-r';
+    src: url('../resources/fonts/WinkyRough-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'wr-b';
+    src: url('../resources/fonts/WinkyRough-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'wr-sb';
+    src: url('../resources/fonts/WinkyRough-SemiBold.ttf');
+}
+
+body {
+    background-color: #fff;
+    font-family: "wr-r";
+    min-height: 100%;
+}
+#custom-menu{
+    background-color: #eee;
+}
+.hover-bg:hover {
+  background-color: #f8f9fa; /* Bootstrap light gray */
+  cursor: pointer;
+}
+/* ----------------------------------------------- utilites end  */
+
+/* -----------------------------------------------body start */
+
+/* ------------------------------------------------header start */
+/* ------------------------------------------------header end */
+
+/* ------------------------------------------------main */
+/* floating toolbar */
+#custom-toolbar {
+    position: absolute;
+    background: #222;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: none;
+    gap: 10px;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transform: translate(-50%, -100%);
+}
+
+#custom-toolbar button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#custom-toolbar button:hover {
+    color: yellow;
+}
+
+/* top */
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-welcome {
+    width: 20%;
+    display: inline-block;
+}
+
+/* aside */
+#side-menu {
+    position: absolute;
+    right: -1rem;
+    z-index: 12;
+    cursor: pointer;
+}
+
+aside {
+    width: 15%;
+    /* transform: translateX(-99%); */
+    padding: 0 .5rem;
+    text-transform: capitalize;
+}
+
+
+aside ul li a {
+    padding-left: .5rem;
+}
+
+#load_all {
+    /* margin-left: 1rem; */
+}
+
+/*-------------------------------------------------------------------*/
+/* content */
+.content {
+    width: 84%;
+    margin-top: 0 !important;
+    padding: 0 0rem;
+    display: flex;
+    min-height: 100%;
+    position: relative;
+}
+
+/* recent section */
+#go-search {
+    position: absolute;
+    display: none;
+    background-color: gray;
+}
+
+#search-input {
+    width: 73%;
+    line-height: normal;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 2rem;
+}
+
+#search-input::placeholder {
+    color: rgba(128, 128, 128, 0.466);
+}
+
+#search-input:focus {
+    outline: none;
+}
+
+.content .notes {
+    width: 30%;
+    height: 10%;
+    background-color: rgba(255, 0, 0, 0.386);
+    border: 1px solid #887;
+
+}
+
+/*-------------------------------------------------------------------*/
+
+/* right content  */
+.content .create-panel {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.content .edit-tools {
+    display: none;
+}
+
+.content .edit-tools ul {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3rem;
+    justify-content: center;
+    position: fixed;
+    right: .5rem;
+    top: 4rem;
+    z-index: 1;
+
+
+
+}
+
+.edit-tools ul li {
+    cursor: pointer;
+}
+
+.write-panel {
+    height: 100%;
+    position: relative;
+}
+
+#txt-area {
+    font-family: 'wr-r';
+    font-size: 1rem;
+    padding: 1rem;
+    position: relative;
+    min-height: 100vh;
+    /* margin-left: -250px; */
+
+}
+
+
+
+#txt-area:focus {
+    border: none;
+    outline: none;
+}
+
+.main-section,
+.content {
+
+    margin-top: 1rem;
+
+}
+
+#search-input {
+    /* margin-left: 25%; */
+    border-radius: 0.5rem;
+    line-height: 2rem;
+    /* margin-top: 3rem; */
+}
+
+/*-------------------------------------------------------------------*/
+
+
+/* -----------------------------------------------body end */
+
+/* -----------------------------------------------media query start*/
+@media screen and (max-width:1000px){
+    aside{
+        display: none;
+    }
+    #txt-area{
+        width: 95%;
+        padding: 0;
+        margin: 0;
+        border: none;
+        outline: none;
+    }
+}
+
+/* -----------------------------------------------media query start*/
+
+
+/* new menu */
+/* #custom-menu{
+  visibility: hidden;
+  position: absolute;
+  width: 200px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+}
+#custom-menu .menu{
+  padding: 10px 12px;
+}
+.content .item{
+  list-style: none;
+  font-size: 1rem;
+  height: 50px;
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  padding: 0 5px 0 10px;
+}
+.content .item:hover{
+  background: #f2f2f2;
+}
+.content .item span{
+  margin-left: 8px;
+  font-size: 19px;
+}
+.content .setting{
+  display: flex;
+  margin-top: -5px;
+  padding: 5px 12px;
+  border-top: 1px solid #ccc;
+}
+.content .share{
+  position: relative;
+  justify-content: space-between;
+}
+.share .share-menu{
+  position: absolute;
+  background: #fff;
+  width: 200px;
+  right: -200px;
+  top: -35px;
+  padding: 13px;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.08);
+  transition: 0.2s ease;
+}
+.share:hover .share-menu{
+  opacity: 1;
+  pointer-events: auto;
+} */
